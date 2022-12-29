@@ -29,7 +29,7 @@ body {
 .logo {
     height: 100%;
     width: 100%;
-    background: url("../assets/trip-bg-slow.gif") no-repeat center center;
+    background: url("/assets/trip-bg-slow.gif") no-repeat center center;
 }
 .container {
     display: flex;
