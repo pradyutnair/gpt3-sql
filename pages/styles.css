@@ -10,7 +10,7 @@ body {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background: linear-gradient(101deg, #0808E2 0%, #000000 100%);
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -18,21 +18,33 @@ body {
     padding: 0px;
     position: relative;
 }
+.logo-container {
+    height: 100px;
+    padding: 0;
+    width: 100%;
+    margin-bottom: -7rem;
+    margin-top: -8rem;
+}
 
+.logo {
+    height: 100%;
+    width: 100%;
+    background: url("../assets/trip-bg-slow.gif") no-repeat center center;
+}
 .container {
     display: flex;
+    height: 100vh;
+    width: 100vh;
     place-content: center flex-start;
     align-items: center;
-    flex: 0 0 auto;
+    flex: auto;
     flex-flow: column nowrap;
-    gap: 10px;
-    height: fit-content;
-    max-width: 975px;
+    gap: 2.5rem;
+    max-width: 1275px;
     overflow: auto;
     padding: 50px;
+    /*border: 5px yellow solid;*/
     position: relative;
-    width: auto;
-    gap: 64px;
 }
 
 .header {    
@@ -52,7 +64,7 @@ body {
     width: 100%;
     font-weight: 700;
     font-size: 72px;
-    letter-spacing: -4px;
+    letter-spacing: -2px;
     line-height: 1.2em;
     text-align: center;
     margin: 0;
@@ -67,51 +79,94 @@ body {
 }
 
 .prompt-container {
-    place-content: flex-end center;
+    /*place-content: flex-end center;*/
     align-items: center;
     display: flex;
     flex: 0 0 auto;
-    flex-flow: column nowrap;
-    gap: 16px;
-    height: min-content;
+    flex-shrink: 0;
+    flex-direction: row;
+    /*flex-flow: row wrap;*/
+    gap: 25px;
+    /*border: 10px solid firebrick;*/
+    height: 450px;
     padding: 0px;
-    width: min-content;
+    width: 100%;
 }
 
 .prompt-box {
     border-bottom-width: 1px;
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: rgb(255, 255, 255, 0.1);
     border-left-width: 1px;
     border-right-width: 1px;
     border-style: solid;
     border-top-width: 1px;
+    flex: 1;
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     display: flex;
-    flex: 0 0 auto;
-    flex-flow: column nowrap;
-    gap: 10px;
-    height: 150px;
-    overflow: hidden;
+    justify-content: space-between;
+    flex-flow: row;
+    margin-right: 8px;
+    margin-top: -20px;
+    gap: 2rem;
+    height: 250px;
+    overflow: auto;
     padding: 20px;
     position: relative;
-    width: 610px;
+    width: 410px;
     max-width: 1200px;
     will-change: transform;
-    overflow: auto;
     outline: none;
     resize: none;
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     letter-spacing: 0px;
     line-height: 1.6em;
     text-align: start;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     text-transform: none;
 }
+
+/*here's my new stuff */
+.query-container {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    /*flex-grow: 1;*/
+    justify-content: flex-start;
+    gap: 12px;
+    /*border: 10px solid firebrick;*/
+    height: 150px;
+    margin-bottom: -120px;
+    width: 100%;
+}
+.query-box {
+    gap: 10px;
+    height: 50px;
+}
+
+/* new class ends here*/
+
+.textbox {
+  /* Style the div to look like a textbox */
+  border: 3px solid #705dff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  /* Make the div not editable */
+  user-select: none;
+  pointer-events: none;
+}
+
+
+
 
 textarea {
     font-family: 'Manrope', sans-serif;
@@ -127,15 +182,15 @@ textarea {
     display: flex;
     place-content: center;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     flex: 0 0 auto;
     flex-flow: row nowrap;
-    gap: 12px;
+    gap: 10px;
     height: min-content;
     overflow: hidden;
     padding: 0px;
     position: relative;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .key-stroke {
@@ -170,28 +225,35 @@ textarea {
 }
 
 .generate-button {
-    place-content: flex-start;
-    align-items: flex-start;
+    place-content: center;
+    align-items: center;
     background-color: rgb(255, 79, 18);
-    border-radius: 100px;
+    border-radius: 10px;
     display: flex;
     flex: 0 0 auto;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     gap: 10px;
-    height: min-content;
+    height: 50px;
     overflow: hidden;
     padding: 16px 24px;
     position: relative;
     text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 19px;
     width: min-content;
+    margin-right: 8px;
     will-change: transform;
     cursor: pointer;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    /*background: transparent;*/
 }
 
 .generate {
     outline: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     flex-shrink: 0;
     transform: none;
@@ -200,6 +262,7 @@ textarea {
 .generate p {
     color: rgb(255, 255, 255);
     margin: 0;
+    margin-bottom: 4px;
 }
 
 .loading {
@@ -225,7 +288,7 @@ textarea {
     border-right-width: 1px;
     border-style: solid;
     border-top-width: 1px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(4, 0, 73);
     border-radius: 54.3478% / 238.095%;
     filter: grayscale(1);
     transform: none;
@@ -249,8 +312,8 @@ textarea {
     height: 17px;
     image-rendering: pixelated;
     flex-shrink: 0;
-    fill: black;
-    color: black;
+    fill: white;
+    color: white;
     transform: none;
     transform-origin: 50% 50% 0px;
     padding-right: 5px;
@@ -288,7 +351,7 @@ textarea {
     display: flex;
     flex: 0 0 auto;
     flex-flow: column nowrap;
-    gap: 16px;
+    gap: 6px;
     height: min-content;
     overflow: hidden;
     padding: 0px;
@@ -298,7 +361,7 @@ textarea {
 
 .output-header h3 {
     font-family: "Manrope", serif;
-    font-size: 28px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 800;
     letter-spacing: 0px;
@@ -313,17 +376,18 @@ textarea {
 .output-content {
     outline: none;
     display: flex;
-    /* max-width: 25%; */
+    /*max-width: 25%;*/
     flex-direction: column;
     justify-content: flex-start;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    font-size: 20px;
     transform: none;
 }
 
 .output-content p {
     text-align: center;
     white-space: pre-line;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 @media (min-width: 810px) and (max-width: 1199px) {
@@ -342,14 +406,14 @@ textarea {
     }
 }
 
-@media (max-width: 809px) {
+@media (max-width: 2500px) {
     .container {
-        max-width: 500px;
+        max-width: 1100px;
         width: 100%;
     }
 
     .prompt-container {
-        max-width: 500px;
+        max-width: 1500px;
         width: 100%;
     }
 
@@ -381,7 +445,7 @@ textarea {
     }
 
     .prompt-container {
-        max-width: 400px;
+        max-width: 500px;
         width: 100%;
     }
 
