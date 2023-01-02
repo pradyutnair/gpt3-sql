@@ -11,7 +11,7 @@ const basePromptPrefix = "";
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`);
-  const model_prompt = `Given the following database schema and their properties: ${req.body.databaseSchema}, Write an SQL query to ${req.body.userInput}. You may use joins and sub-queries and except clauses if necessary: SELECT`;
+  const model_prompt = `Given the following Postgres database schema and their properties: \n ${req.body.databaseSchema}, \n Write an SQL query to ${req.body.userInput}. Use joins and sub-queries and except clauses if necessary:\nSELECT`;
   const baseCompletion = await openai.createCompletion({
     model: 'code-davinci-002',
     prompt: model_prompt,
