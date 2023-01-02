@@ -125,3 +125,4 @@ const Home = () => {
 };
 
 export default Home;
+// adding redundant code to test git push
