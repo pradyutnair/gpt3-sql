@@ -1,7 +1,7 @@
 import Image from 'next/image';
+import Header from 'next/head';
 import { useState } from 'react';
 import buildspaceLogo from '../assets/buildspace-logo.png';
-
 
 
 const Home = () => {
@@ -54,11 +54,13 @@ const Home = () => {
 
   // copy the text to the clipboard
   document.execCommand("copy");
-}
-  document.title="QueryCraft";
-  return (
-    <div className="root">
+  }
 
+  return (
+    <div>
+      <head>
+        <title>QueryCraft</title></head>
+    <div className="root">
       <div className="container">
         <div className="prompt-container logo-container">
           <div className="logo"></div>
@@ -117,6 +119,7 @@ const Home = () => {
           </div>
         </a>
       </div>
+    </div>
     </div>
   );
 };
