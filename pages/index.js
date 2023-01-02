@@ -1,9 +1,6 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
 import buildspaceLogo from '../assets/buildspace-logo.png';
-import arrow from '../assets/arrow.webp';
-import trip from '../assets/trip.gif';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
