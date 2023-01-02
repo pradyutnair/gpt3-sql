@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 
-document.title="QueryCraft";
+
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -55,7 +55,7 @@ const Home = () => {
   // copy the text to the clipboard
   document.execCommand("copy");
 }
-
+  document.title="QueryCraft";
   return (
     <div className="root">
 
