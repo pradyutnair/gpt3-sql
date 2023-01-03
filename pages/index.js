@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 
 
@@ -56,71 +56,75 @@ const Home = () => {
   }
 
   return (
-      <div>
-        <title>QueryCraft</title>
-        <div className="root">
-          <div className="container">
-            <div className="prompt-container logo-container">
-              <div className="logo"></div>
-            </div>
-            <div className="header">
-              <div className="header-title">
-                <h1>English to SQL</h1>
-              </div>
-              <div className="header-subtitle">
-                <h2>Easily convert plain english to SQL queries!</h2>
-              </div>
-            </div>
-            <div className="query-container">
-              <textarea placeholder="state your query"
-                        className="prompt-box query-box"
-                        value={userInput}
-                        onChange={onUserChangedText}
-
-              />
-              <div className="prompt-buttons">
-                <a className="generate-button" onClick={callGenerateEndpoint}>
-                  <div className="generate">
-                    {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
-                  </div>
+        <div>
+          <title>QueryCraft</title>
+          <div className="root">
+            <div className="name-container">
+              <a href="https://querycraft.vercel.app/">
+              <hh>🔮QueryCraft </hh>
                 </a>
+            </div>
+            <div className="container">
+              <div className="prompt-container logo-container">
+                <div className="logo"></div>
+              </div>
+              <div className="header">
+                <div className="header-title">
+                  <h1>English to SQL</h1>
+                </div>
+                <div className="header-subtitle">
+                  <h2>Easily convert plain english to SQL queries!</h2>
+                </div>
+              </div>
+              <div className="query-container">
+                <textarea placeholder="state your query"
+                          className="prompt-box query-box"
+                          value={userInput}
+                          onChange={onUserChangedText}
+
+                />
+                <div className="prompt-buttons">
+                  <a className="generate-button" onClick={callGenerateEndpoint}>
+                    <div className="generate">
+                      {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div className="prompt-container">
+                <textarea placeholder="enter your schema"
+                          className="prompt-box"
+                          value={databaseSchema}
+                          onChange={onDatabaseChangedText}
+                />
+                {apiOutput && (
+                <textarea placeholder="output..."
+                          className="prompt-box"
+                          value={result + apiOutput.replace("<code>", "")}
+                          onChange={onTestOutputText}
+                          readOnly={true}
+                />
+                )}
+
+                 {/*New code I added here */}
+
               </div>
             </div>
-            <div className="prompt-container">
-              <textarea placeholder="enter your schema"
-                        className="prompt-box"
-                        value={databaseSchema}
-                        onChange={onDatabaseChangedText}
-              />
-              {apiOutput && (
-              <textarea placeholder="output..."
-                        className="prompt-box"
-                        value={result + apiOutput.replace("<code>", "")}
-                        onChange={onTestOutputText}
-                        readOnly={true}
-              />
-              )}
-
-               {/*New code I added here */}
-
+            <div className="badge-container grow">
+              <a
+                href="https://github.com/pradyutnair"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="badge">
+                  <Image src={buildspaceLogo} alt="buildspace logo" />
+                  <p>GitHub</p>
+                </div>
+              </a>
             </div>
-          </div>
-          <div className="badge-container grow">
-            <a
-              href="https://github.com/pradyutnair"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className="badge">
-                <Image src={buildspaceLogo} alt="buildspace logo" />
-                <p>GitHub</p>
-              </div>
-            </a>
           </div>
         </div>
-      </div>
-  );
+    );
 };
-
 export default Home;
 // adding redundant code to test git push
