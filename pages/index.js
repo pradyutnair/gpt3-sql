@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import buildspaceLogo from '../assets/buildspace-logo.png';
+import buildspaceLogo from '../assets/github.png';
 
 
 const Home = () => {
