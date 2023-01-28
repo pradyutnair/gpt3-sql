@@ -16,7 +16,7 @@ const generateAction = async (req, res) => {
     model: 'code-davinci-002',
     prompt: model_prompt,
     temperature: 0,
-    max_tokens: 150,
+    max_tokens: 256,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
