@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Manrope', sans-serif;
+    overflow: hidden;
 }
 
 .root {
@@ -24,30 +25,31 @@ body {
     width: 100%;
     margin-bottom: -7rem;
     margin-top: -8rem;
+    
 }
 
 .logo {
     height: 100%;
     width: 100%;
     background: url("/trip-bg-slow.gif") no-repeat center center;
+    scale: 0.85;
 }
 .container {
     display: flex;
     height: 100vh;
-    width: 100vh;
+    width: 70vh;
     place-content: center flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex: auto;
     flex-flow: column nowrap;
     gap: 2.5rem;
-    max-width: 1275px;
     overflow: auto;
-    padding: 50px;
-    /*border: 5px yellow solid;*/
+    padding: 5px;
+    
     position: relative;
 }
 
-.header {    
+.header {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -58,6 +60,7 @@ body {
 .header-title {
     display: flex;
     gap: 12px;
+    
 }
 
 .header-title h1 {
@@ -80,7 +83,7 @@ body {
 }
 
 .prompt-container {
-    /*place-content: flex-end center;*/
+    place-content: center;
     align-items: center;
     display: flex;
     flex: 0 0 auto;
@@ -92,9 +95,10 @@ body {
     height: 450px;
     padding: 0px;
     width: 100%;
+    margin-left:120px
 }
 
-.prompt-box {
+.prompt-box{
     border-bottom-width: 1px;
     border-color: rgb(255, 255, 255, 0.1);
     border-left-width: 1px;
@@ -102,12 +106,12 @@ body {
     border-style: solid;
     border-top-width: 1px;
     flex: 1;
-    place-content: flex-start;
-    align-items: flex-start;
+    place-content: center center;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-flow: row;
     margin-right: 8px;
     margin-top: -20px;
@@ -116,7 +120,7 @@ body {
     overflow: auto;
     padding: 20px;
     position: relative;
-    width: 410px;
+    width: 210px;
     max-width: 1200px;
     will-change: transform;
     outline: none;
@@ -126,7 +130,7 @@ body {
     letter-spacing: 0px;
     line-height: 1.6em;
     text-align: start;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255, 0.8);
     text-decoration: none;
     text-transform: none;
 }
@@ -136,14 +140,13 @@ body {
     align-items: center;
     display: flex;
     flex: 0 0 auto;
-    flex-shrink: 0;
-    /*flex-grow: 1;*/
-    justify-content: flex-start;
+    justify-content: center;
     gap: 12px;
-    /*border: 10px solid firebrick;*/
+    /* border: 10px solid firebrick; */
     height: 150px;
     margin-bottom: -120px;
-    width: 100%;
+    width: 1257px;
+    margin-left: 120px;
 }
 .query-box {
     gap: 10px;
@@ -169,19 +172,40 @@ body {
 }
 
 .hh{
-
+    justify-content: flex-start;
     font-style: normal;
     font-weight: 400;
     line-height: 1.4em;
-    color: rgb(3, 3, 83);
 }
 
 
 a {
   text-decoration: none;
-  color: inherit;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 }
 
+.gradient-text {
+    /* Fallback: Set a background color. */
+    background-color: red;
+    font-weight: bold;
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, #4bf7e0, #ffff4b);
+    
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent; */
+  }
+  
+  
 .textbox {
   /* Style the div to look like a textbox */
   border: 3px solid #705dff;
@@ -197,7 +221,9 @@ a {
 }
 
 
-
+div.container > div:nth-child(5) > textarea.prompt-box.grow:hover{
+    transform: scale(1.03) !important;
+}
 
 textarea {
     font-family: 'Manrope', sans-serif;
@@ -216,12 +242,9 @@ textarea {
     justify-content: center;
     flex: 0 0 auto;
     flex-flow: row nowrap;
-    gap: 10px;
     height: min-content;
-    overflow: hidden;
     padding: 0px;
-    position: relative;
-    /*width: 100%;*/
+    width: max-content;
 }
 
 .key-stroke {
@@ -269,6 +292,8 @@ textarea {
     padding: 16px 24px;
     position: relative;
     text-decoration: none;
+    transform: none;
+    transform-origin: 50% 50% 0px;
     font-size: 1.2rem;
     margin-bottom: 19px;
     width: min-content;
@@ -439,13 +464,12 @@ textarea {
 
 @media (max-width: 2500px) {
     .container {
-        max-width: 1100px;
+        max-width: 1500px;
         width: 100%;
     }
 
     .prompt-container {
-        max-width: 1500px;
-        width: 100%;
+        max-width: 1260px;
     }
 
     .prompt-box {

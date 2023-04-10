@@ -1,0 +1,58 @@
+
+/*Switch label*/
+/*Switch label*/
+.toggle-arrow {
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-arrow .real-checkbox {
+  clip: rect(0, 0, 0, 0); /* Hide checkbox */
+  position: absolute;
+}
+
+.toggle-arrow .real-checkbox + .toggle-button {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+/* Arrow tail */
+/*.toggle-arrow .real-checkbox + .toggle-button::before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  top: 25px;*/
+/*  left: -10px;*/
+/*  transform: translateY(-50%);*/
+/*  width: 30px;*/
+/*  height: 1px;*/
+/*  background-color: #fff;*/
+/*}*/
+
+/* Arrow head */
+.toggle-arrow .real-checkbox + .toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  /* Arrow */
+  border: solid #ffffff;
+  border-width: 0 3px 3px 0;
+  padding: 6px;
+  /* Right arrow */
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.toggle-arrow .real-checkbox:checked + .toggle-button::after {
+  /* Left arrow */
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.toggle-arrow .toggle-button:hover:after {
+  padding: 8px;
+}

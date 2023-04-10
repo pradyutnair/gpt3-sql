@@ -8,7 +8,33 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState('')
   const [databaseSchema, setDatabaseSchema] = useState('');
   const [testOutput, setTestOutput] = useState('');
-  const [isGenerating, setIsGenerating] = useState(false)
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [isOn, setIsToggled] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+  
+  // Sign up button
+  <a href="/signup" className="signup-button">Sign up</a>
+  // Sign up page
+  const SignUp = async => {
+    return (
+      <div>
+        <h1>Sign up</h1>
+        <form>
+          <label htmlFor="username">Username:</label>
+          <input type="text" id="username" name="username" />
+
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" />
+
+          <label htmlFor="password">Password:</label>
+          <input type="password" id="password" name="password" />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    );
+  };
+
   let result = 'SELECT ';
   const callGenerateEndpoint = async () => {
     if (userInput === "") {
@@ -47,24 +73,29 @@ const Home = () => {
   }
 
   function copyToClipboard(elementId) {
-  // select the textarea
-  var textarea = document.getElementById(elementId);
-  textarea.select();
+    // select the textarea
+    var textarea = document.getElementById(elementId);
+    textarea.select();
 
-  // copy the text to the clipboard
-  document.execCommand("copy");
+    // copy the text to the clipboard
+    document.execCommand("copy");
   }
+  function ToggleSwitch() {
 
-  return (
+    const handleToggle = () => {
+      setIsToggled(!isOn);
+    }
+  }
+    return (
         <div>
           <title>QueryCraft</title>
           <div className="root">
-            <div className="name-container">
-              <a href="https://querycraft.vercel.app/">
-              <hh>🔮QueryCraft </hh>
-                </a>
-            </div>
+            
             <div className="container">
+            <a href="https://querycraft.vercel.app/">
+              <hh>🔮QueryCraft</hh>
+            </a>
+
               <div className="prompt-container logo-container">
                 <div className="logo"></div>
               </div>
@@ -72,8 +103,10 @@ const Home = () => {
                 <div className="header-title">
                   <h1>English to SQL</h1>
                 </div>
+
                 <div className="header-subtitle">
-                  <h2>Easily convert plain english to SQL queries!</h2>
+                  <h2>Easily convert between English and SQL!</h2>
+                  
                 </div>
               </div>
               <div className="query-container">
@@ -84,9 +117,9 @@ const Home = () => {
 
                 />
                 <div className="prompt-buttons">
-                  <a className="generate-button" onClick={callGenerateEndpoint}>
+                  <a className="generate-button grow" onClick={callGenerateEndpoint}>
                     <div className="generate">
-                      {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
+                      {isGenerating ? <span className="loader"></span> : <p>Go</p>}
                     </div>
                   </a>
                 </div>
@@ -98,26 +131,26 @@ const Home = () => {
                           onChange={onDatabaseChangedText}
                 />
                 {apiOutput && (
-                <textarea placeholder="output..."
-                          className="prompt-box"
-                          value={result + apiOutput.replace("<code>", "")}
-                          onChange={onTestOutputText}
-                          readOnly={true}
-                />
+                    <textarea placeholder="output..."
+                              className="prompt-box grow"
+                              value={result + apiOutput.replace("<code>", "")}
+                              onChange={onTestOutputText}
+                              readOnly={true}
+                    />
                 )}
 
-                 {/*New code I added here */}
+                {/*New code I added here */}
 
               </div>
             </div>
             <div className="badge-container grow">
               <a
-                href="https://github.com/pradyutnair"
-                target="_blank"
-                rel="noreferrer"
+                  href="https://github.com/pradyutnair"
+                  target="_blank"
+                  rel="noreferrer"
               >
                 <div className="badge">
-                  <Image src={buildspaceLogo} alt="buildspace logo" />
+                  <Image src={buildspaceLogo} alt="buildspace logo"/>
                   <p>GitHub</p>
                 </div>
               </a>
@@ -127,4 +160,4 @@ const Home = () => {
     );
 };
 export default Home;
-// adding redundant code to test git push
+
